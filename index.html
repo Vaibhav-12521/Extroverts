@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<title>Extroverts — Random people. Real parties.</title>
+<meta name="description" content="Create your Extroverts account. Break free from endless scrolling and meet real people, in the real world." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231E2472'/%3E%3Cstop offset='.35' stop-color='%236B3BD6'/%3E%3Cstop offset='.68' stop-color='%23E8479B'/%3E%3Cstop offset='1' stop-color='%23FF7A33'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='18' y='74' font-family='Playfair Display,Georgia,serif' font-size='70' font-weight='900' fill='white'%3EE%3C/text%3E%3Ccircle cx='76' cy='34' r='9' fill='white'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<div class="backdrop" aria-hidden="true">
+  <div class="backdrop__lit">
+    <i class="streak streak--1"></i>
+    <i class="streak streak--2"></i>
+    <i class="streak streak--3"></i>
+    <i class="streak streak--4"></i>
+    <i class="streak streak--5"></i>
+  </div>
+  <div class="backdrop__grain"></div>
+  <div class="backdrop__dots"></div>
+  <div class="backdrop__stars"></div>
+</div>
+
+<div class="toasts" id="toasts" role="region" aria-live="polite" aria-label="Notifications"></div>
+
+<section class="screen screen--landing is-active" id="screen-landing" data-screen="landing">
+  <div class="landing">
+
+    <header class="landing__bar">
+      <div class="landing__brand">
+        <div class="wordmark" aria-label="Extroverts">
+          <span class="wordmark__e">E</span><span class="wordmark__dot"></span>
+        </div>
+        <p class="kicker kicker--tag">Real people. Real moments.</p>
+      </div>
+      <div class="landing__meta">
+        <p class="kicker">Honey presents</p>
+        <div class="landing__progress" id="storyBars" aria-hidden="true">
+          <span class="bar"><i></i></span><span class="bar"><i></i></span><span class="bar"><i></i></span>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="hero__copy">
+
+        <div class="landing__stage" id="storyStage">
+          <button class="landing__tap landing__tap--prev" id="storyPrev" aria-label="Previous slide"></button>
+          <button class="landing__tap landing__tap--next" id="storyNext" aria-label="Next slide"></button>
+
+          <article class="slide is-active" data-slide="0">
+            <h1 class="display">Strangers.<br /><span class="grad">Hangouts.</span><br />Memories.</h1>
+            <p class="slide__sub">Break free from endless scrolling and reconnect with real people, in the real world.</p>
+          </article>
+
+          <article class="slide" data-slide="1">
+            <h1 class="display">Host parties<br /><span class="grad">in your city.</span></h1>
+            <p class="slide__sub">Pick a theme, set the vibe, choose your guest count — your crew finds you.</p>
+          </article>
+
+          <article class="slide" data-slide="2">
+            <h1 class="display">Let vibes<br /><span class="grad">find vibes.</span></h1>
+            <p class="slide__sub">Hangouts around you, matched to what you actually enjoy doing.</p>
+          </article>
+        </div>
+
+        <div class="hero__cta">
+          <button class="btn btn--primary btn--hero" id="ctaSignup">
+            <span class="btn__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="btn__label">Create your account</span>
+          </button>
+          <button class="btn btn--ghost btn--hero" id="ctaLogin">I already have an account</button>
+        </div>
+
+        <ul class="hero__features">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span>Meet<br />new people</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Real<br />conversations</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z M19 3v3M20.5 4.5h-3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Unforgettable<br />experiences</span>
+          </li>
+        </ul>
+
+        <p class="legal">
+          By continuing you agree to our
+          <button class="linkish" id="openTerms">Terms &amp; Community Rules</button>.<br />
+          Extroverts is strictly 18+.
+        </p>
+      </div>
+
+      <div class="hero__art" aria-hidden="true">
+        <figure class="shot shot--a">
+          <img src="assets/hero-sunset.jpg" alt="" loading="eager" />
+          <figcaption class="script">Good<br />People<br />Better Nights</figcaption>
+        </figure>
+
+        <figure class="shot shot--b">
+          <img src="assets/hero-crowd.jpg" alt="" loading="eager" />
+        </figure>
+
+        <figure class="shot shot--c">
+          <img src="assets/hero-colour.jpg" alt="" loading="eager" />
+          <figcaption class="script">More Than<br />Just Online</figcaption>
+        </figure>
+
+        <div class="fbadge fbadge--a">
+          <span class="stack">
+            <img src="assets/av-1.jpg" alt="" /><img src="assets/av-2.jpg" alt="" /><img src="assets/av-3.jpg" alt="" />
+          </span>
+          <div class="fbadge__txt"><strong>Real people</strong><span>Real connections</span></div>
+          <span class="live"></span>
+        </div>
+
+        <div class="fbadge fbadge--b">
+          <span class="stack">
+            <img src="assets/av-4.jpg" alt="" /><img src="assets/av-3.jpg" alt="" /><img src="assets/av-1.jpg" alt="" />
+          </span>
+          <div class="fbadge__txt"><strong>Create</strong><span>real memories</span></div>
+          <span class="heart">
+            <svg viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z" fill="currentColor"/></svg>
+          </span>
+        </div>
+
+        <p class="note note--a">Different<br />People<br />Same Vibes &#9825;</p>
+        <p class="note note--b">
+          It starts<br />with a hello
+          <svg class="note__arrow" viewBox="0 0 80 60"><path d="M4 54C22 52 52 44 66 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M58 14h10v11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screen screen--terms" id="screen-terms" data-screen="terms">
+  <div class="sheet">
+    <header class="sheet__head">
+      <button class="iconbtn" id="termsBack" aria-label="Go back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div>
+        <h2 class="sheet__title">Terms &amp; Community Rules</h2>
+        <p class="sheet__meta">Last updated 13 September 2026 · 4 min read</p>
+      </div>
+    </header>
+
+    <div class="sheet__body" id="termsBody" tabindex="0">
+      <h3>1. Who can use Extroverts</h3>
+      <p>Extroverts is an 18+ platform. By creating an account you confirm that you are at least eighteen (18) years old and legally able to enter into this agreement. Accounts that misstate age are removed without notice and without refund of any Honorary Vibe Tokens.</p>
+
+      <h3>2. Your account</h3>
+      <p>One human, one account. You are responsible for everything that happens under your handle, including the parties you host and the guests you approve. Keep your login details to yourself; if you believe your account has been accessed by someone else, tell us within 48 hours.</p>
+
+      <h3>3. Real people, real names</h3>
+      <p>Your display name and profile photo must reasonably represent you. Impersonation, catfishing, or joining a hangout on behalf of somebody else is grounds for immediate removal from the community.</p>
+
+      <h3>4. Showing up</h3>
+      <p>An RSVP is a promise to a host who has planned around you. Repeated no-shows lower your Vibe Score and may restrict your ability to join exclusive parties. If plans change, cancel in the app so your seat can go to someone on the waitlist.</p>
+
+      <h3>5. Hosting a party</h3>
+      <p>Hosts set the theme, the guest count, the venue and the time. As a host you are responsible for describing the hangout honestly, for any cost you advertise, and for the safety of the space you have chosen. Extroverts does not organise, supervise or insure events listed on the platform.</p>
+
+      <h3>6. Safety first</h3>
+      <p>Meet in public the first time. Tell a friend where you are going. Use the in-app share-my-location tool for the duration of a hangout. Never send money to another member outside the platform, and never share a one-time password with anyone — our team will never ask for it.</p>
+
+      <h3>7. Content you post</h3>
+      <p>You keep ownership of the photos, captions and memories you upload. You grant Extroverts a non-exclusive, worldwide, royalty-free licence to store and display that content inside the product so that the people in your hangouts can relive it. You can delete your content at any time.</p>
+
+      <h3>8. Zero tolerance</h3>
+      <p>Harassment, hate speech, sexual content involving minors, solicitation, drugs, weapons, spam and commercial promotion without a Host Pro licence all result in a permanent ban. Reports are reviewed by a human within 24 hours.</p>
+
+      <h3>9. Your data</h3>
+      <p>We collect the details you give us during signup — email, name, date of birth, pronouns, city, college and interests — to match you with hangouts that are actually relevant. We do not sell personal data. You may request an export or a full deletion from Settings, Privacy, and we will action it within 30 days.</p>
+
+      <h3>10. Notifications</h3>
+      <p>By signing up you agree to receive transactional messages about your parties, RSVPs and security. Marketing messages are optional and can be switched off in Settings without affecting your account.</p>
+
+      <h3>11. Changes to these terms</h3>
+      <p>If we make a material change we will tell you in the app at least seven days before it takes effect. Continuing to use Extroverts after that date means you accept the updated terms.</p>
+
+      <h3>12. Contact</h3>
+      <p>Questions about these terms? Write to hello@extroverts.app and a human will reply. For grievances under the Information Technology Rules, contact our Grievance Officer at the same address.</p>
+
+      <p class="sheet__end" id="termsEnd">— End of document —</p>
+    </div>
+
+    <footer class="sheet__foot">
+      <p class="sheet__hint" id="termsHint" aria-live="polite">
+        <span class="dot-pulse" aria-hidden="true"></span>
+        Scroll to the end to continue
+      </p>
+      <label class="check" id="termsCheckWrap">
+        <input type="checkbox" id="termsAgree" disabled />
+        <span class="check__box" aria-hidden="true"></span>
+        <span class="check__label">I have read and agree to the Terms, the Community Rules and the Privacy Policy. I confirm I am 18 or older.</span>
+      </label>
+      <div class="sheet__actions">
+        <button class="btn btn--ghost" id="termsDecline">Decline</button>
+        <button class="btn btn--primary" id="termsAccept" disabled>Agree &amp; continue</button>
+      </div>
+    </footer>
+  </div>
+</section>
+
+<section class="screen screen--wizard" id="screen-wizard" data-screen="wizard">
+  <div class="split">
+
+    <aside class="brandpane" aria-hidden="true">
+      <div class="wordmark wordmark--lg">
+        <span class="wordmark__e">E</span><span class="wordmark__dot"></span>
+      </div>
+      <h2 class="display display--pane" id="paneHeadline">Strangers.<br />Hangouts.<br />Memories.</h2>
+      <p class="brandpane__sub" id="paneSub">Four quick steps and the city opens up.</p>
+      <ul class="brandpane__steps" id="paneSteps">
+        <li data-pane-step="1"><span>1</span> Verify your email</li>
+        <li data-pane-step="2"><span>2</span> Tell us who you are</li>
+        <li data-pane-step="3"><span>3</span> Where you hang out</li>
+        <li data-pane-step="4"><span>4</span> Set your vibe</li>
+      </ul>
+      <p class="brandpane__tag">Real people. Real moments.</p>
+    </aside>
+
+    <main class="formpane">
+      <header class="formpane__head">
+        <button class="iconbtn" id="wizBack" aria-label="Go back to the previous step">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <p class="kicker formpane__presents">Honey presents</p>
+
+        <button class="iconbtn" id="wizClose" aria-label="Leave signup">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+
+      <div class="progress">
+        <p class="stepcount" id="stepCount" aria-live="polite">Step 1 of 4</p>
+        <div class="steps" role="group" aria-label="Signup progress">
+          <span class="steps__seg" data-seg="1"><i></i></span>
+          <span class="steps__seg" data-seg="2"><i></i></span>
+          <span class="steps__seg" data-seg="3"><i></i></span>
+          <span class="steps__seg" data-seg="4"><i></i></span>
+        </div>
+      </div>
+
+      <div class="formpane__scroll">
+
+        <section class="step is-active" data-step="1">
+          <div class="pane is-active" data-pane="email">
+            <h2 class="h1" id="authTitle">What's your email?</h2>
+            <p class="sub" id="authSub">We'll send a 6-digit code to make sure it's really you.</p>
+
+            <form novalidate id="formEmail">
+              <div class="field" data-field="email">
+                <label class="label" for="email">Email address</label>
+                <div class="control">
+                  <span class="control__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M3 7l9 6 9-6M3 7v10h18V7H3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                  </span>
+                  <input id="email" name="email" type="email" inputmode="email" autocomplete="email"
+                         placeholder="you@college.edu" maxlength="254" spellcheck="false"
+                         aria-describedby="email-err" />
+                  <span class="control__state" aria-hidden="true"></span>
+                </div>
+                <p class="err" id="email-err" role="alert"></p>
+              </div>
+
+              <button class="btn btn--primary btn--block btn--go" type="submit" id="btnSendOtp">
+                <span class="btn__label">Send code</span>
+                <span class="spinner" aria-hidden="true"></span>
+                <span class="btn__go" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </button>
+            </form>
+
+            <div class="orline"><span>or</span></div>
+
+            <button class="btn btn--oauth btn--block" type="button" id="btnGoogle">
+              <span class="btn__label">
+                <svg class="gmark" viewBox="0 0 48 48" aria-hidden="true">
+                  <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+                  <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+                  <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/>
+                  <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+                </svg>
+                Continue with Google
+              </span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+
+            <p class="switcher">
+              <span data-mode="signup">Already have an account? <button class="linkish" id="toLogin">Log in</button></span>
+              <span data-mode="login" hidden>New to Extroverts? <button class="linkish" id="toSignup">Create an account</button></span>
+            </p>
+          </div>
+
+          <div class="pane" data-pane="otp">
+            <h2 class="h1">Enter the code</h2>
+            <p class="sub">Sent to <strong id="otpTarget">you@college.edu</strong>
+              <button class="linkish" id="changeEmail">Change</button>
+            </p>
+
+            <form novalidate id="formOtp">
+              <div class="field" data-field="otp">
+                <div class="otp" id="otpBoxes" role="group" aria-label="6 digit verification code">
+                  <input class="otp__box" inputmode="numeric" autocomplete="one-time-code" maxlength="1" aria-label="Digit 1" />
+                  <input class="otp__box" inputmode="numeric" maxlength="1" aria-label="Digit 2" />
+                  <input class="otp__box" inputmode="numeric" maxlength="1" aria-label="Digit 3" />
+                  <input class="otp__box" inputmode="numeric" maxlength="1" aria-label="Digit 4" />
+                  <input class="otp__box" inputmode="numeric" maxlength="1" aria-label="Digit 5" />
+                  <input class="otp__box" inputmode="numeric" maxlength="1" aria-label="Digit 6" />
+                </div>
+                <p class="err err--center" id="otp-err" role="alert"></p>
+              </div>
+
+              <button class="btn btn--primary btn--block" type="submit" id="btnVerify" disabled>
+                <span class="btn__label">Verify</span>
+                <span class="spinner" aria-hidden="true"></span>
+              </button>
+            </form>
+
+            <p class="resend" aria-live="polite">
+              <span id="resendWait" hidden>Resend code in <strong id="resendTimer">30</strong>s</span>
+              <button class="linkish" id="btnResend" hidden>Resend code</button>
+            </p>
+
+            <p class="devhint">Demo code: <strong>123456</strong></p>
+          </div>
+        </section>
+
+        <section class="step" data-step="2">
+          <h2 class="h1">Who's joining?</h2>
+          <p class="sub">This is what people see when you walk into a hangout.</p>
+
+          <form novalidate id="formIdentity">
+            <div class="field" data-field="fullName">
+              <label class="label" for="fullName">Full name</label>
+              <div class="control">
+                <input id="fullName" type="text" autocomplete="name" placeholder="Vaibhav Singh" maxlength="40" aria-describedby="fullName-err" />
+                <span class="control__state" aria-hidden="true"></span>
+              </div>
+              <div class="meta"><p class="err" id="fullName-err" role="alert"></p><span class="counter" data-counter-for="fullName">0/40</span></div>
+            </div>
+
+            <div class="field" data-field="dob">
+              <label class="label" for="dobD">Date of birth</label>
+              <div class="dob">
+                <input id="dobD" class="dob__in" inputmode="numeric" maxlength="2" placeholder="DD" aria-label="Day" />
+                <span class="dob__sep">/</span>
+                <input id="dobM" class="dob__in" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Month" />
+                <span class="dob__sep">/</span>
+                <input id="dobY" class="dob__in dob__in--y" inputmode="numeric" maxlength="4" placeholder="YYYY" aria-label="Year" />
+                <span class="agechip" id="ageChip" hidden></span>
+              </div>
+              <p class="err" id="dob-err" role="alert"></p>
+              <p class="hint">You must be 18 or older to join Extroverts.</p>
+            </div>
+
+            <div class="field" data-field="pronouns">
+              <span class="label" id="pronounsLabel">Pronouns</span>
+              <div class="chips" role="radiogroup" aria-labelledby="pronounsLabel" id="pronounChips">
+                <button type="button" class="chip" role="radio" aria-checked="false" data-val="She/Her">She/Her</button>
+                <button type="button" class="chip" role="radio" aria-checked="false" data-val="He/Him">He/Him</button>
+                <button type="button" class="chip" role="radio" aria-checked="false" data-val="They/Them">They/Them</button>
+                <button type="button" class="chip" role="radio" aria-checked="false" data-val="custom">Self-describe</button>
+              </div>
+              <div class="control control--tight" id="pronounCustomWrap" hidden>
+                <input id="pronounCustom" type="text" maxlength="20" placeholder="e.g. Ze/Zir" aria-label="Your pronouns" />
+              </div>
+              <p class="err" id="pronouns-err" role="alert"></p>
+            </div>
+
+            <button class="btn btn--primary btn--block" type="submit">
+              <span class="btn__label">Continue</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+        </section>
+
+        <section class="step" data-step="3">
+          <h2 class="h1">Where do you hang?</h2>
+          <p class="sub">We use this to show you parties you can actually get to.</p>
+
+          <form novalidate id="formPlace">
+            <div class="field" data-field="state">
+              <label class="label" for="state">State</label>
+              <div class="control control--select">
+                <select id="state" aria-describedby="state-err"><option value="">Select your state</option></select>
+              </div>
+              <p class="err" id="state-err" role="alert"></p>
+            </div>
+
+            <div class="field" data-field="city">
+              <label class="label" for="city">City</label>
+              <div class="control control--select">
+                <select id="city" disabled aria-describedby="city-err"><option value="">Select a state first</option></select>
+              </div>
+              <p class="err" id="city-err" role="alert"></p>
+            </div>
+
+            <div class="field" data-field="college">
+              <label class="label" for="college">College <span class="opt">optional</span></label>
+              <div class="control control--select">
+                <select id="college" disabled><option value="">Select a city first</option></select>
+              </div>
+              <div class="control control--tight" id="collegeOtherWrap" hidden>
+                <input id="collegeOther" type="text" maxlength="60" placeholder="Type your college name" aria-label="College name" />
+              </div>
+              <p class="err" id="college-err" role="alert"></p>
+            </div>
+
+            <div class="field" data-field="phone">
+              <label class="label" for="phone">Mobile number</label>
+              <div class="control control--phone">
+                <span class="prefix">+91</span>
+                <input id="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="11" placeholder="98765 43210" aria-describedby="phone-err" />
+                <span class="control__state" aria-hidden="true"></span>
+              </div>
+              <p class="err" id="phone-err" role="alert"></p>
+              <p class="hint">Hosts only see this after you both RSVP to the same party.</p>
+            </div>
+
+            <button class="btn btn--primary btn--block" type="submit">
+              <span class="btn__label">Continue</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+        </section>
+
+        <section class="step" data-step="4">
+          <h2 class="h1">Set your vibe</h2>
+          <p class="sub">Last one. Pick the parties you would say yes to.</p>
+
+          <form novalidate id="formVibe">
+            <div class="field" data-field="username">
+              <label class="label" for="username">Handle</label>
+              <div class="control control--phone">
+                <span class="prefix">@</span>
+                <input id="username" type="text" autocomplete="off" spellcheck="false" maxlength="20" placeholder="yourhandle" aria-describedby="username-err" />
+                <span class="control__state" aria-hidden="true"><span class="spinner spinner--sm"></span></span>
+              </div>
+              <div class="meta"><p class="err" id="username-err" role="alert"></p><span class="counter" data-counter-for="username">0/20</span></div>
+            </div>
+
+            <div class="field" data-field="interests">
+              <span class="label" id="interestsLabel">What gets you out of the house? <span class="opt" id="interestCount">0/6 · pick at least 3</span></span>
+              <div class="chips chips--wrap" id="interestChips" role="group" aria-labelledby="interestsLabel"></div>
+              <p class="err" id="interests-err" role="alert"></p>
+            </div>
+
+            <div class="field" data-field="bio">
+              <label class="label" for="bio">One-line bio <span class="opt">optional</span></label>
+              <div class="control control--area">
+                <textarea id="bio" rows="3" maxlength="150" placeholder="Will show up for anything with good food and worse karaoke."></textarea>
+              </div>
+              <div class="meta"><p class="err" id="bio-err" role="alert"></p><span class="counter" data-counter-for="bio">0/150</span></div>
+            </div>
+
+            <div class="banner banner--err" id="submitBanner" hidden role="alert">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5M12 16.5v.01M10.3 3.9L2.5 17.4A2 2 0 004.2 20.4h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div>
+                <strong id="submitBannerTitle">We could not create your profile</strong>
+                <p id="submitBannerMsg">Our server did not respond. Nothing was lost — try again.</p>
+              </div>
+              <button type="button" class="btn btn--sm" id="btnRetry">Retry</button>
+            </div>
+
+            <button class="btn btn--primary btn--block" type="submit" id="btnFinish">
+              <span class="btn__label">Create my profile</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+        </section>
+
+      </div>
+    </main>
+  </div>
+</section>
+
+<section class="screen screen--done" id="screen-done" data-screen="done">
+  <div class="done">
+    <div class="done__badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M4 12.5l5.2 5.2L20 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2 class="display display--done" id="doneTitle">You're in.</h2>
+    <p class="sub sub--center" id="doneSub">Welcome to Extroverts, <strong id="doneName">friend</strong>. Your first hangouts are already waiting.</p>
+
+    <div class="card profilecard" id="profileCard">
+      <div class="profilecard__top">
+        <span class="avatar" id="doneAvatar">E</span>
+        <div class="profilecard__id">
+          <p class="profilecard__name" id="cardName">Your name</p>
+          <p class="profilecard__handle" id="cardHandle">@handle</p>
+        </div>
+        <span class="pill pill--club">Bronze Club</span>
+      </div>
+      <dl class="profilecard__grid">
+        <div><dt>City</dt><dd id="cardCity">—</dd></div>
+        <div><dt>College</dt><dd id="cardCollege">—</dd></div>
+        <div><dt>Age</dt><dd id="cardAge">—</dd></div>
+      </dl>
+      <div class="profilecard__tags" id="cardTags"></div>
+    </div>
+
+    <button class="btn btn--primary btn--block" id="doneEnter">Take me to the parties</button>
+    <button class="btn btn--ghost btn--block" id="doneRestart">Start over (demo)</button>
+  </div>
+</section>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <h3 id="modalTitle">Leave signup?</h3>
+    <p id="modalBody">Your progress is saved on this device, so you can pick up right where you left off.</p>
+    <div class="modal__actions">
+      <button class="btn btn--ghost" data-close>Keep going</button>
+      <button class="btn btn--danger" id="modalConfirm">Leave</button>
+    </div>
+  </div>
+</div>
+
+<div class="demo" id="demo">
+  <button class="demo__toggle" id="demoToggle" aria-expanded="false">Demo controls</button>
+  <div class="demo__body" hidden>
+    <label class="sw"><input type="checkbox" id="optSlow" /><span class="sw__track"></span> Slow network (3s)</label>
+    <label class="sw"><input type="checkbox" id="optFailOtp" /><span class="sw__track"></span> Force send-code failure</label>
+    <label class="sw"><input type="checkbox" id="optFailSubmit" /><span class="sw__track"></span> Force submit failure</label>
+    <button class="btn btn--sm btn--ghost" id="optFill">Autofill valid data</button>
+    <button class="btn btn--sm btn--ghost" id="optClear">Clear saved draft</button>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
