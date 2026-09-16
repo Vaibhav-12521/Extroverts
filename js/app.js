@@ -189,7 +189,7 @@
     $('#termsCheckWrap').classList.remove('is-locked');
     var hint = $('#termsHint');
     hint.classList.add('is-done');
-    hint.innerHTML = '<span class="dot-pulse" style="background:currentColor"></span> You have reached the end — you can continue';
+    hint.innerHTML = '<span class="dot-pulse" style="background:currentColor"></span> You have reached the end and can continue';
   }
 
   function resetTerms() {
@@ -297,7 +297,7 @@
 
   V.dob = function (dd, mm, yy) {
     if (!dd && !mm && !yy) return 'Enter your date of birth.';
-    if (!dd || !mm || !yy) return 'Enter the full date — day, month and year.';
+    if (!dd || !mm || !yy) return 'Enter the full date: day, month and year.';
     var d = +dd, m = +mm, y = +yy;
     if (yy.length !== 4) return 'Enter the year in full, like 2004.';
     if (m < 1 || m > 12) return 'Month must be between 01 and 12.';
@@ -307,7 +307,7 @@
     if (dt > new Date()) return 'Your date of birth cannot be in the future.';
     var age = ageFrom(d, m, y);
     if (age > 100) return 'Please double-check the year you entered.';
-    if (age < 18) return 'You have to be 18 or older to join Extroverts. Come back on your 18th birthday — we will be here.';
+    if (age < 18) return 'You have to be 18 or older to join Extroverts. Come back on your 18th birthday, we will be here.';
     return '';
   };
 
@@ -493,13 +493,13 @@
 
       if (S.mode === 'signup' && known) {
         setErr('email', 'An account already exists with this email.');
-        toast('err', 'Account already exists', 'Log in instead — we have switched you over.');
+        toast('err', 'Account already exists', 'Log in instead. We have switched you over.');
         setMode('login');
         return;
       }
       if (S.mode === 'login' && !known) {
         setErr('email', 'We could not find an account with that email.');
-        toast('err', 'No account found', 'Create one instead — it takes about a minute.');
+        toast('err', 'No account found', 'Create one instead. It takes about a minute.');
         return;
       }
 
@@ -698,7 +698,7 @@
         } else if (age < 18 && age >= 0) {
           chip.hidden = false;
           chip.classList.add('is-bad');
-          chip.textContent = age + ' — under 18';
+          chip.textContent = age + ' (under 18)';
           setErr('dob', msg);
         } else {
           chip.hidden = true;
@@ -841,7 +841,7 @@
       fill(ct, D.cities(st.value), 'Select your city');
       resetCollege();
       setNeutral('city');
-      if (hadCity && !restoring) toast('info', 'City reset', 'Pick a city in ' + st.value + ' — the list has changed.', 3200);
+      if (hadCity && !restoring) toast('info', 'City reset', 'Pick a city in ' + st.value + '. The list has changed.', 3200);
       saveDraft();
     });
 
@@ -969,7 +969,7 @@
       var v = chip.dataset.val, i = S.interests.indexOf(v);
       if (i > -1) S.interests.splice(i, 1);
       else if (S.interests.length >= MAX_INTERESTS) {
-        toast('info', 'That is a full plate', 'Pick up to ' + MAX_INTERESTS + ' themes — deselect one to swap.', 3000);
+        toast('info', 'That is a full plate', 'Pick up to ' + MAX_INTERESTS + ' themes. Deselect one to swap.', 3000);
         return;
       } else S.interests.push(v);
       if (S.interests.length >= MIN_INTERESTS) setNeutral('interests');
@@ -1032,12 +1032,12 @@
     var uMsg = V.username($('#username').value);
     if (uMsg) { setErr('username', uMsg); bad.push('username'); }
     else if (D.TAKEN_HANDLES.indexOf($('#username').value.trim()) > -1) {
-      setErr('username', 'That handle is taken — pick another.');
+      setErr('username', 'That handle is taken, pick another.');
       bad.push('username');
     } else setOk('username');
 
     if (S.interests.length < MIN_INTERESTS) {
-      setErr('interests', 'Pick at least ' + MIN_INTERESTS + ' — it is how we match you to parties.');
+      setErr('interests', 'Pick at least ' + MIN_INTERESTS + '. It is how we match you to parties.');
       bad.push('interests');
     } else setOk('interests', true);
 
@@ -1083,9 +1083,9 @@
     $('#doneAvatar').textContent = (S.fullName || 'E').charAt(0).toUpperCase();
     $('#cardName').textContent = S.fullName;
     $('#cardHandle').textContent = '@' + S.username + (pronounLabel() ? ' · ' + pronounLabel() : '');
-    $('#cardCity').textContent = S.city || '—';
+    $('#cardCity').textContent = S.city || 'Not set';
     $('#cardCollege').textContent = S.college || 'Not added';
-    $('#cardAge').textContent = S.age ? S.age + ' yrs' : '—';
+    $('#cardAge').textContent = S.age ? S.age + ' yrs' : 'Not set';
 
     var tags = $('#cardTags');
     tags.innerHTML = '';
